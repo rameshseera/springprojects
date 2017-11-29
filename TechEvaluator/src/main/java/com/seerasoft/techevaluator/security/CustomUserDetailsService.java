@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.seerasoft.techevaluator.model.User;
-import com.seerasoft.techevaluator.model.UserProfile;
+import com.seerasoft.techevaluator.model.UserRole;
 import com.seerasoft.techevaluator.service.UserService;
 
 
@@ -44,9 +44,9 @@ public class CustomUserDetailsService implements UserDetailsService{
 	private List<GrantedAuthority> getGrantedAuthorities(User user){
 		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
 		
-		for(UserProfile userProfile : user.getUserProfiles()){
-			logger.info("UserProfile : {}", userProfile);
-			authorities.add(new SimpleGrantedAuthority("ROLE_"+userProfile.getType()));
+		for(UserRole userRole : user.getUserProfiles()){
+			logger.info("UserRole : {}", userRole);
+			authorities.add(new SimpleGrantedAuthority("ROLE_"+userRole.getType()));
 		}
 		logger.info("authorities : {}", authorities);
 		return authorities;

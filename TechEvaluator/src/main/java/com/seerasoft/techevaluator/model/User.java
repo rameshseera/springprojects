@@ -49,7 +49,7 @@ public class User implements Serializable{
 	@JoinTable(name = "sste_user_roles", 
              joinColumns = { @JoinColumn(name = "USER_ID") }, 
              inverseJoinColumns = { @JoinColumn(name = "USER_PROFILE_ID") })
-	private Set<UserProfile> userProfiles = new HashSet<UserProfile>();
+	private Set<UserRole> userRoles = new HashSet<UserRole>();
 
 	public Integer getId() {
 		return id;
@@ -99,12 +99,12 @@ public class User implements Serializable{
 		this.email = email;
 	}
 
-	public Set<UserProfile> getUserProfiles() {
-		return userProfiles;
+	public Set<UserRole> getUserProfiles() {
+		return userRoles;
 	}
 
-	public void setUserProfiles(Set<UserProfile> userProfiles) {
-		this.userProfiles = userProfiles;
+	public void setUserProfiles(Set<UserRole> userRoles) {
+		this.userRoles = userRoles;
 	}
 
 	@Override

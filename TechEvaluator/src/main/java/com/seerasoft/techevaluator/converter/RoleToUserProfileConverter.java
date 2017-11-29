@@ -6,14 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
-import com.seerasoft.techevaluator.model.UserProfile;
+import com.seerasoft.techevaluator.model.UserRole;
 import com.seerasoft.techevaluator.service.UserProfileService;
 
 /**
  * A converter class used in views to map id's to actual userProfile objects.
  */
 @Component
-public class RoleToUserProfileConverter implements Converter<Object, UserProfile>{
+public class RoleToUserProfileConverter implements Converter<Object, UserRole>{
 
 	static final Logger logger = LoggerFactory.getLogger(RoleToUserProfileConverter.class);
 	
@@ -21,12 +21,12 @@ public class RoleToUserProfileConverter implements Converter<Object, UserProfile
 	UserProfileService userProfileService;
 
 	/**
-	 * Gets UserProfile by Id
+	 * Gets UserRole by Id
 	 * @see org.springframework.core.convert.converter.Converter#convert(java.lang.Object)
 	 */
-	public UserProfile convert(Object element) {
+	public UserRole convert(Object element) {
 		Integer id = Integer.parseInt((String)element);
-		UserProfile profile= userProfileService.findById(id);
+		UserRole profile= userProfileService.findById(id);
 		logger.info("Profile : {}",profile);
 		return profile;
 	}

@@ -11,13 +11,13 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="sste_roles")
-public class UserProfile implements Serializable{
+public class UserRole implements Serializable{
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;	
 
 	@Column(name="TYPE", length=15, unique=true, nullable=false)
-	private String type = UserProfileType.USER.getUserProfileType();
+	private String type = UserRoleType.USER.getUserProfileType();
 	
 	public Integer getId() {
 		return id;
@@ -50,9 +50,9 @@ public class UserProfile implements Serializable{
 			return true;
 		if (obj == null)
 			return false;
-		if (!(obj instanceof UserProfile))
+		if (!(obj instanceof UserRole))
 			return false;
-		UserProfile other = (UserProfile) obj;
+		UserRole other = (UserRole) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -68,7 +68,7 @@ public class UserProfile implements Serializable{
 
 	@Override
 	public String toString() {
-		return "UserProfile [id=" + id + ", type=" + type + "]";
+		return "UserRole [id=" + id + ", type=" + type + "]";
 	}
 
 

@@ -2,15 +2,15 @@ package com.seerasoft.techevaluator.service;
 
 import java.util.List;
 
-import com.seerasoft.techevaluator.model.UserProfile;
+import com.seerasoft.techevaluator.model.UserRole;
 
 
 public interface UserProfileService {
 
-	UserProfile findById(int id);
+	UserRole findById(int id);
 
-	UserProfile findByType(String type);
+	UserRole findByType(String type);
 	
-	List<UserProfile> findAll();
+	List<UserRole> findAll();
 	
 }

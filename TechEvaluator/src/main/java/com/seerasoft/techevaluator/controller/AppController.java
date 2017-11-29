@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.seerasoft.techevaluator.model.User;
-import com.seerasoft.techevaluator.model.UserProfile;
+import com.seerasoft.techevaluator.model.UserRole;
 import com.seerasoft.techevaluator.service.UserProfileService;
 import com.seerasoft.techevaluator.service.UserService;
 
@@ -162,10 +162,10 @@ public class AppController {
 	
 
 	/**
-	 * This method will provide UserProfile list to views
+	 * This method will provide UserRole list to views
 	 */
 	@ModelAttribute("roles")
-	public List<UserProfile> initializeProfiles() {
+	public List<UserRole> initializeProfiles() {
 		return userProfileService.findAll();
 	}
 	
@@ -214,7 +214,8 @@ public class AppController {
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
 		if (principal instanceof UserDetails) {
-			userName = ((UserDetails)principal).getUsername();
+			UserDetails thisUser = (UserDetails)principal;
+			userName = thisUser.getUsername() + " Got User";
 		} else {
 			userName = principal.toString();
 		}
