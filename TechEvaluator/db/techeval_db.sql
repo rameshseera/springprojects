@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 100116
 File Encoding         : 65001
 
-Date: 2017-11-29 15:55:39
+Date: 2017-11-29 16:41:44
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -40,14 +40,15 @@ CREATE TABLE `sste_roles` (
   `type` varchar(30) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `type` (`type`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of sste_roles
 -- ----------------------------
-INSERT INTO `sste_roles` VALUES ('2', 'ADMIN');
-INSERT INTO `sste_roles` VALUES ('3', 'DBA');
-INSERT INTO `sste_roles` VALUES ('1', 'USER');
+INSERT INTO `sste_roles` VALUES ('1', 'ADMIN');
+INSERT INTO `sste_roles` VALUES ('4', 'CORP_ADMIN');
+INSERT INTO `sste_roles` VALUES ('2', 'INTERVIEWER');
+INSERT INTO `sste_roles` VALUES ('3', 'USER');
 
 -- ----------------------------
 -- Table structure for sste_users
@@ -88,7 +89,7 @@ CREATE TABLE `sste_user_roles` (
 -- ----------------------------
 -- Records of sste_user_roles
 -- ----------------------------
-INSERT INTO `sste_user_roles` VALUES ('1', '2');
-INSERT INTO `sste_user_roles` VALUES ('2', '1');
-INSERT INTO `sste_user_roles` VALUES ('3', '2');
-INSERT INTO `sste_user_roles` VALUES ('4', '1');
+INSERT INTO `sste_user_roles` VALUES ('1', '1');
+INSERT INTO `sste_user_roles` VALUES ('2', '2');
+INSERT INTO `sste_user_roles` VALUES ('3', '1');
+INSERT INTO `sste_user_roles` VALUES ('4', '2');
