@@ -18,7 +18,7 @@ import javax.persistence.Table;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
-@Table(name="APP_USER")
+@Table(name="sste_users")
 public class User implements Serializable{
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -46,7 +46,7 @@ public class User implements Serializable{
 
 	@NotEmpty
 	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "APP_USER_USER_PROFILE", 
+	@JoinTable(name = "sste_user_roles", 
              joinColumns = { @JoinColumn(name = "USER_ID") }, 
              inverseJoinColumns = { @JoinColumn(name = "USER_PROFILE_ID") })
 	private Set<UserProfile> userProfiles = new HashSet<UserProfile>();

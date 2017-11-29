@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="USER_PROFILE")
+@Table(name="sste_roles")
 public class UserProfile implements Serializable{
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
